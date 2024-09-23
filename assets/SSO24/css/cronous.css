@@ -1,0 +1,69 @@
+.cronous {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    height: 64px;
+    width: 64px;
+    rotate: 0deg;
+    scale: 0.8;
+    opacity: 0.05;
+    transition: all 0.5s ease;
+    z-index: 9999;
+}
+
+.cronous img {
+    width: 100%;
+    -webkit-user-drag: none;
+}
+
+.redEyes {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    aspect-ratio: 1 / 1;
+    height: 50%;
+    border-radius: 100%;
+    background-color: red;
+    clip-path: polygon(50% 50%, 0% 80%, 0% 100%, 100% 100%, 100% -20%);
+    opacity: 0;
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+.redEyes::after {
+    content: '';
+    position: absolute;
+    aspect-ratio: 1 / 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    border-radius: 100%;
+    background-color: rgb(50, 0, 0);
+    z-index: 0;
+    animation: Eyes 1.6s ease-in-out infinite alternate, Blinks 2s ease-in-out infinite alternate;
+    transition: all 0.5s 0.3s ease;
+}
+
+.countDownRex {
+    position: absolute;
+    top: 0;
+    right: 0;
+    rotate: -45deg;
+}
+
+.cronous.rex {
+    rotate: 45deg;
+    scale: 1;
+    opacity: 1;
+}
+
+.cronous.rex .redEyes {
+    opacity: 1;
+}
+
+.cronous.rex .redEyes::after {
+    height: 45%;
+}
